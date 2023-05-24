@@ -36,6 +36,11 @@ Testing
 ```bash
 npm run test
 ```
+to run the same test inside the browser:
+
+```bash
+npm run browser-test
+```
 to run the same test inside docker:
 
 ```bash

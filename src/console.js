@@ -30,6 +30,6 @@ export const makeOutputter = (outputter)=>{
         },
         
     }
-}
+};
 
 export default makeOutputter(console);

@@ -1,4 +1,37 @@
-import { makeOutputter } from './src/console.js';
+//TODO: Investigate: does not like being external on browser load, despite no deps
+const makeOutputter = (outputter)=>{
+    return { // should work for any console.log() interface
+        log: (level, message, ...data)=>{
+            let processed = false;
+            if( level & Logger.TRACE && (!processed)){
+                (outputter.trace || outputter.log)(...[message].concat(data))
+                processed = true;
+            };
+            if( level & Logger.DEBUG && (!processed)){
+                (outputter.debug || outputter.log)(...[message].concat(data))
+                processed = true;
+            };
+            if( level & Logger.INFO && (!processed)){
+                (outputter.info || outputter.log)(...[message].concat(data))
+                processed = true;
+            };
+            if( level & Logger.WARN && (!processed)){
+                (outputter.warn || outputter.log)(...[message].concat(data))
+                processed = true;
+            };
+            if( level & Logger.ERROR && (!processed)){
+                (outputter.error || outputter.log)(...[message].concat(data))
+                processed = true;
+            };
+            if( level & Logger.SILENT && (!processed)){
+                (outputter.trace || outputter.log)(...[message].concat(data))
+                processed = true;
+            };
+        },
+        
+    }
+};
+
 export class Logger{
     // a bitwise logger because, after this many years, there isn't one in NPM
     static TRACE  =  1; //<< 0
