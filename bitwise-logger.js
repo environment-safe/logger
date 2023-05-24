@@ -1,4 +1,4 @@
-import consoleBridge from './src/console.js';
+import { makeOutputter } from './src/console.js';
 export class Logger{
     // a bitwise logger because, after this many years, there isn't one in NPM
     static TRACE  =  1; //<< 0
@@ -56,5 +56,5 @@ Logger.global.INFO = Logger.INFO;
 Logger.global.WARN = Logger.WARN;
 Logger.global.ERROR = Logger.ERROR;
 Logger.global.SILENT = Logger.SILENT;
-Logger.global.registerChannel(consoleBridge);
+Logger.global.registerChannel(makeOutputter(console));
 export default Logger.global;
