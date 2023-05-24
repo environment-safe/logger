@@ -1,6 +1,6 @@
 {
     "name": "bitwise-logger",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "main": "bitwise-logger.js",
     "type": "module",
     "devDependencies": {

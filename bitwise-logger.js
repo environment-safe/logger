@@ -56,5 +56,9 @@ Logger.global.INFO = Logger.INFO;
 Logger.global.WARN = Logger.WARN;
 Logger.global.ERROR = Logger.ERROR;
 Logger.global.SILENT = Logger.SILENT;
-Logger.global.registerChannel(makeOutputter(console));
+try{
+    Logger.global.registerChannel(makeOutputter(console));
+}catch(ex){
+    console.log('Logger: Did not register default console channel.')
+}
 export default Logger.global;
