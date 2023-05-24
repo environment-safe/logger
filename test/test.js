@@ -1,10 +1,7 @@
-import { createRequire } from "module";
-const require = createRequire(import.meta.url);
-import * as chai from 'chai';
-const intercept = require("intercept-stdout");
+import { chai } from 'environment-safe-chai'; 
+const should = chai.should();
+import { intercept } from 'environment-safe-console-intercept';
 import { Logger } from '../bitwise-logger.js';
-const should = (chai.should?chai:window.chai).should();
-
 
 const testLogEvent = (logger, eventType, shouldLog)=>{
     let text = '';

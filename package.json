@@ -1,16 +1,22 @@
 {
     "name": "bitwise-logger",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "main": "bitwise-logger.js",
     "type": "module",
     "devDependencies": {
         "chai": "^4.3.7",
         "intercept-stdout": "^0.1.2",
-        "mocha": "^10.2.0"
+        "mocha": "^10.2.0",
+        "environment-safe-chai": "^0.0.1",
+        "environment-safe-console-intercept": "^0.0.2"
     },
     "scripts": {
         "lint": "./node_modules/.bin/eslint *.js src/*.js test/*.js",
         "test": "./node_modules/.bin/mocha",
+        "browser-test": "open http://localhost:8000/test/test.html; npx http-server -p 8000",
         "container-test": "docker build . -t bitwise-logger -f ./containers/test.dockerfile; docker logs --follow \"$(docker run -d bitwise-logger)\""
+    },
+    "dependencies": {
+        "browser-or-node": "^2.1.1"
     }
 }
