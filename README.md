@@ -18,6 +18,22 @@ import Logger from 'bitwise-logger';
 Logger.log('foo', Logger.DEBUG & Logger.INFO ) //log to either debug level
 ```
 
+You can also use a more traditional syntax:
+
+```javascript
+import Logger as logger from 'bitwise-logger';
+const { 
+    //if Syslog:
+    EMERGENCY, ALERT, CRITICAL, ERROR, WARNING, 
+    NOTICE, INFORMATIONAL, DEBUG 
+    // If log4j: 
+    // FATAL, ERROR, WARN, INFO, DEBUG, TRACE
+} = logger;
+
+//...
+logger.log('foo', DEBUG & INFORMATIONAL ) //log to either debug level
+```
+
 You can also configure and use your own instance
 
 ```javascript
