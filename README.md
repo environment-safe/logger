@@ -15,7 +15,7 @@ The simplest thing to do is use the default static instance
 ```javascript
 import Logger from 'bitwise-logger';
 //...
-Logger.log('foo', Logger.DEBUG & Logger.INFO ) //log to either debug level
+Logger.log('foo', Logger.DEBUG | Logger.INFO ) //log to either debug level
 ```
 
 You can also use a more traditional syntax:
@@ -31,7 +31,7 @@ const {
 } = logger;
 
 //...
-logger.log('foo', DEBUG & INFORMATIONAL ) //log to either debug level
+logger.log('foo', DEBUG | INFORMATIONAL ) //log to either debug level
 ```
 
 You can also configure and use your own instance
