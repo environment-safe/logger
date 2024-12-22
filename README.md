@@ -24,11 +24,15 @@ You can also use a more traditional syntax:
 import Logger as logger from 'bitwise-logger';
 const { 
     //if Syslog:
+    //eslint-disable-next-line no-unused-vars
     EMERGENCY, ALERT, CRITICAL, ERROR, WARNING, 
     NOTICE, INFORMATIONAL, DEBUG 
     // If log4j: 
     // FATAL, ERROR, WARN, INFO, DEBUG, TRACE
 } = logger;
+
+//ADD YOUR OWN:
+const MY_LOG_LEVEL = 1 << 9;
 
 //...
 logger.log('foo', DEBUG | INFORMATIONAL ) //log to either debug level

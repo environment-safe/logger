@@ -1,8 +1,32 @@
 {
     "name": "bitwise-logger",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "main": "bitwise-logger.js",
     "type": "module",
+    "exports": {
+        ".": {
+            "import": "./bitwise-logger.js"
+        },
+        "./package.json": {
+            "import": "./package.json",
+            "require": "./package.json"
+        },
+        "./src/index.mjs": {
+            "import": "./bitwise-logger.js"
+        }
+    },
+    "homepage": "https://github.com/khrome/bitwise-logger",
+    "description": "An ESM module for granular bitwise logging",
+    "keywords": [],
+    "author": "Abbey Hawk Sparrow <khrome>(http://abbeyhawksparrow.com)",
+    "contributors": [],
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:khrome/bitwise-logger.git"
+    },
+    "bugs": {
+        "url": "https://github.com/khrome/bitwise-logger/issues"
+    },
     "devDependencies": {
         "chai": "^4.3.7",
         "intercept-stdout": "^0.1.2",
