@@ -35,7 +35,7 @@ const {
 const MY_LOG_LEVEL = 1 << 9;
 
 //...
-logger.log('foo', DEBUG | INFORMATIONAL ) //log to either debug level
+logger.log('foo', INFORMATIONAL ) //log to info
 ```
 
 You can also configure and use your own instance
