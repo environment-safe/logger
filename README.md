@@ -52,10 +52,10 @@ const logger = new Logger({
 });
 // bind to the built-in console functions
 logger.registerChannel(makeConsoleChannel(console));
-//log to both debug or info (only one instance will be output)
-logger.log('foo', Logger.DEBUG | Logger.INFO )
+//log to debug
+logger.log('foo', Logger.DEBUG );
 // only output if both debug and info are enabled
-logger.log('bar', Logger.DEBUG & Logger.INFO )
+logger.log('bar', Logger.DEBUG & Logger.INFO );
 
 
 ```
