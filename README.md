@@ -15,7 +15,7 @@ The simplest thing to do is use the default static instance
 ```javascript
 import Logger from '@environment-safe/logger';
 //...
-Logger.log('foo', Logger.DEBUG | Logger.INFO ) //log to either debug level
+Logger.log('foo', Logger.INFO ) //log to info
 ```
 
 You can also use a more traditional syntax:
