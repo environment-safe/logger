@@ -1,5 +1,5 @@
-bitwise-logger
-==============
+@environment-safe/logger
+========================
 
 Many years ago, in Java, I developed a preference for [bitwise](https://abdulapopoola.com/2016/05/30/understanding-bit-masks/) loggers, and hoped someone would eventually release one. That never happened and I adapted to the node highwatermark style of loggers.
 
@@ -13,7 +13,7 @@ Usage
 The simplest thing to do is use the default static instance
 
 ```javascript
-import Logger from 'bitwise-logger';
+import Logger from '@environment-safe/logger';
 //...
 Logger.log('foo', Logger.DEBUG | Logger.INFO ) //log to either debug level
 ```
@@ -21,7 +21,7 @@ Logger.log('foo', Logger.DEBUG | Logger.INFO ) //log to either debug level
 You can also use a more traditional syntax:
 
 ```javascript
-import Logger as logger from 'bitwise-logger';
+import Logger as logger from '@environment-safe/logger';
 const { 
     //if Syslog:
     //eslint-disable-next-line no-unused-vars
@@ -41,15 +41,17 @@ logger.log('foo', DEBUG | INFORMATIONAL ) //log to either debug level
 You can also configure and use your own instance
 
 ```javascript
-import { Logger } from 'bitwise-logger';
-import consoleBridge from 'bitwise-logger/src/console.js';
+import { 
+    Logger, makeConsoleChannel 
+} from '@environment-safe/logger';
 //...
 // create a new logger
-const logger = new Logger();
-//only log errors and info
-logger.level = Logger.ERROR & Logger.INFO;
+const logger = new Logger({
+    //only log errors and info
+    level: Logger.ERROR & Logger.INFO
+});
 // bind to the built-in console functions
-logger.registerChannel(consoleBridge);
+logger.registerChannel(makeConsoleChannel(console));
 //log to both debug or info (only one instance will be output)
 logger.log('foo', Logger.DEBUG | Logger.INFO )
 // only output if both debug and info are enabled
