@@ -1,6 +1,6 @@
 {
     "name": "@environment-safe/logger",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "main": "./src/index.mjs",
     "type": "module",
     "exports": {
@@ -94,9 +94,6 @@
         "prepare": "husky install"
     },
     "dependencies": {
-        "@environment-safe/chai": "^0.2.0",
-        "@environment-safe/console-intercept": "^0.2.0",
-        "@open-automaton/moka": "^0.5.5",
         "browser-or-node": "^2.1.1"
     }
 }
